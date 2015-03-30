@@ -1,0 +1,566 @@
+
+  
+    
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="baidu_union_verify" content="d1952c66cf48912e21c18c7c581f382a">
+  <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8">
+<meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88">
+  
+    <title>蓝牙4.0，物联网时代的垫脚石 | coney</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="coney">
+    
+    <meta name="description" content="蓝牙4.0，物联网时代的垫脚石
+最近工作需要用到蓝牙4.0，整理了一些信息，分享一下。蓝牙 4.0 的标准早在 2010 年 7 月就已经发布，但真正应用于智能手机则是在 2011 年 9 月 iPhone 4S 发布之后。尽管随后 Galaxy S3、Galaxy Note 2 等一批支持蓝牙 4">
+    
+    
+    
+    
+    <link rel="alternate" href="atom.xml" title="coney" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/coney/img/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/coney/css/style.css" type="text/css">
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            var _bdId ='391982416296a0d54221f59fe35250d4';
+             hm.src = "//hm.baidu.com/hm.js?" + _bdId;
+             var s = document.getElementsByTagName("script")[0]; 
+             s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+     
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/coney/" title="coney">coney</a></h1>
+				<a class="blog-motto">有些事情,再不去做就忘了.有些人,再不去找就没了.</a>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+          
+            <li><a href="/categories/小说">小说</a></li>
+          
+            <li><a href="/categories/hexo">Hexo</a></li>
+          
+            <li><a href="/categories/技术/">技术</a></li>
+          
+            <li><a href="/friends">Friends</a></li>
+          
+            <li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+                                            <form class="search" action="http://search.gengbiao.me/cse/search" target="_blank">
+                                            <label>Search</label>
+                                        <input name="s" type="hidden" value="2049782880735612718"><input type="text" name="q" size="30" placeholder="搜索"><br>
+					
+					</form></li>
+				</ul>
+                            </ul></nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope="" itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/coney/2014/09/15/蓝牙4.0，物联网时代的垫脚石/" title="蓝牙4.0，物联网时代的垫脚石" itemprop="url">蓝牙4.0，物联网时代的垫脚石</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://gengbiao.me" title="coney" target="_blank" rel="external">coney</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2014-09-15T13:08:18.000Z" itemprop="datePublished">9月 15 2014</time>
+    更新日期:<time datetime="2014-10-20T08:08:33.000Z" itemprop="dateModified">10月 20 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#蓝牙4-0，物联网时代的垫脚石"><span class="toc-number">1.</span> <span class="toc-text">蓝牙4.0，物联网时代的垫脚石</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#蓝牙4-0较之前有什么较重要的改进："><span class="toc-number">1.1.</span> <span class="toc-text">蓝牙4.0较之前有什么较重要的改进：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#蓝牙4-+必将助力物联网"><span class="toc-number">1.2.</span> <span class="toc-text">蓝牙4.+必将助力物联网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于开发"><span class="toc-number">1.3.</span> <span class="toc-text">关于开发</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="蓝牙4-0，物联网时代的垫脚石">蓝牙4.0，物联网时代的垫脚石</h1>
+<p>最近工作需要用到蓝牙4.0，整理了一些信息，分享一下。<br>蓝牙 4.0 的标准早在 2010 年 7 月就已经发布，但真正应用于智能手机则是在 2011 年 9 月 iPhone 4S 发布之后。尽管随后 Galaxy S3、Galaxy Note 2 等一批支持蓝牙 4.0 的 Android 机型纷至沓来，但 Android 原生系统始终缺乏预设蓝牙框架，由于系统底层蓝牙驱动不同，开发者无法在不同品牌不同机型的 Android 手机上做一些蓝牙外设。<br>而在Android 4.3 的发布会上，google终于带来了 Bluetooth 4.0 Low Energy。这必将是一个物联网加速发展的大好时机。</p>
+<h2 id="蓝牙4-0较之前有什么较重要的改进：">蓝牙4.0较之前有什么较重要的改进：</h2>
+<table>
+<thead>
+<tr>
+<th>技术规范</th>
+<th>经典蓝牙（2.1 &amp;3.0）</th>
+<th>低功耗蓝牙（4.0）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无线电频率</td>
+<td>2.4GHz</td>
+<td>2.4GHz</td>
+</tr>
+<tr>
+<td>距离</td>
+<td>10米/100米</td>
+<td>30米</td>
+<td></td>
+</tr>
+<tr>
+<td>数据速率</td>
+<td>1-3Mbps</td>
+<td>1Mbps</td>
+<td></td>
+</tr>
+<tr>
+<td>应用吞吐量</td>
+<td>0.7-2.1Mbps</td>
+<td>0.2Mbps</td>
+<td></td>
+</tr>
+<tr>
+<td>发送数据的总时间</td>
+<td>100ms</td>
+<td>&lt;6ms</td>
+<td></td>
+</tr>
+<tr>
+<td>耗电量</td>
+<td>1</td>
+<td>0.01至0.5</td>
+<td></td>
+</tr>
+<tr>
+<td>最大操作电流</td>
+<td>&lt;30mA</td>
+<td>&lt;15mA（最高运行时为15 mA）</td>
+<td></td>
+</tr>
+<tr>
+<td>主要用途</td>
+<td>手机，游戏机，耳机，立体声音频流，汽车和PC等</td>
+<td>手机，游戏机，PC，表，体育和健身，医疗保健，汽车，家用电子，自动化和工业等</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>低能耗！</p>
+<p>   蓝牙4.0可以用更低的功耗传输更远的距离，而且在待机状态（不使用）的情况下，耗电量几乎可以忽略不计，据称一颗纽扣电池就可以待机数年之久。注意，这里说的是 待机。<br>   在真正传输数据时耗电量并没有很大改观，但是在待机的时候大大降低了耗电量。</p>
+</li>
+<li><p>更长的传输距离！</p>
+<p>  从蓝牙4.0的规范标准来看，其中有一点就是高达100米的传输距离，这在以前是不敢想象的.<br> 一般的蓝牙设备，也就是10米范围内，好一点的也不会超过20米的传输距离，在4.0之前，最高速度24Mbps的蓝牙技术高速规范提高了蓝牙设备的门槛，比如当初森海塞尔RS180无线耳机，作为一款2.4G设备竟然能有100米的传输距离令业界惊奇了好久。<br>但是相信4.0普及以后，轻轻松松就可以达到这个成绩。</p>
+</li>
+<li><p>其他的包括速度，延迟，安全方面的改进就不详细介绍了。</p>
+<h2 id="蓝牙4-+必将助力物联网">蓝牙4.+必将助力物联网</h2>
+<p>蓝牙4.1出来了。蓝牙4.1新技术全面解析：这次蓝牙4.1玩了回大的—IOT（物联网）。而为了实现这一点，迎合可穿戴和多设备连接，对通讯功能的改进（改善数据传输能力）成为4.1标准最重要的升级之一。听说5.0还要全面组网。</p>
+<h2 id="关于开发">关于开发</h2>
+<p>下图为蓝牙4.0的模块图<br><img src="http://coney.qiniudn.com/blog_ble4.0.png?attname=&amp;e=1412907149&amp;token=gJq7XMKe61C7zF73uUsV1e9QYqD3-fJSyQAAZZZr:1kFE0vBHkr4uEEs8xW41YmIEvK8" alt="bluetooth4.0"><br>根据模块图可以看出，蓝牙核心规范4.0的模块增加了以下几个蓝牙低功耗组件。</p>
+</li>
+</ul>
+<ul>
+<li>GATT表示服务器属性和客户端属性，描述了属性服务器中使用的服务层次，特点和属    性。BLE设备使用它作为蓝牙低功耗应用规范的服务发现。</li>
+<li><p>ATT实现了属性客户端和服务器之间的点对点协议。ATT客户端给ATT服务器发送请命令。ATT服务器向ATT客户端发送回复和通知。</p>
+</li>
+<li><p>SMP用于生成对等协议的加密密钥和身份密钥。SMP管理加密密钥和身份密钥的存储，它通过生成和解析设备的地址来识别蓝牙设备。</p>
+</li>
+</ul>
+<p>稍后写出demo来会继续分享。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/coney/tags/物联网/">物联网</a><a href="/coney/tags/蓝牙4-0/">蓝牙4.0</a><a href="/coney/tags/智能硬件/">智能硬件</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/coney/categories/技术-技术普及/">技术-技术普及</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://gengbiao.me/2014/09/15/蓝牙4.0，物联网时代的垫脚石/" data-title="蓝牙4.0，物联网时代的垫脚石 | coney" data-tsina="1005055274569156" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev">
+ <a href="/coney/2014/09/22/git_常见问题汇总/" title="git 常见问题汇总">
+  <strong>PREVIOUS:</strong><br>
+  <span>
+  git 常见问题汇总</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/coney/2014/09/13/one_rule，one_place/" title="one rule，one place">
+ <strong>NEXT:</strong><br> 
+ <span>one rule，one place
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#蓝牙4-0，物联网时代的垫脚石"><span class="toc-number">1.</span> <span class="toc-text">蓝牙4.0，物联网时代的垫脚石</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#蓝牙4-0较之前有什么较重要的改进："><span class="toc-number">1.1.</span> <span class="toc-text">蓝牙4.0较之前有什么较重要的改进：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#蓝牙4-+必将助力物联网"><span class="toc-number">1.2.</span> <span class="toc-text">蓝牙4.+必将助力物联网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于开发"><span class="toc-number">1.3.</span> <span class="toc-text">关于开发</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	<div class="social-list">
+		
+		<a href="http://weibo.com/coneylife" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/coneycode" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/coney/categories/Mac/" title="Mac">Mac<sup>1</sup></a></li>
+		
+			<li><a href="/coney/categories/Terminal/" title="Terminal">Terminal<sup>1</sup></a></li>
+		
+			<li><a href="/coney/categories/hexo/" title="hexo">hexo<sup>3</sup></a></li>
+		
+			<li><a href="/coney/categories/小说-世界上最美的十大谎言/" title="小说-世界上最美的十大谎言">小说-世界上最美的十大谎言<sup>2</sup></a></li>
+		
+			<li><a href="/coney/categories/小说-你好，旧时光/" title="小说-你好，旧时光">小说-你好，旧时光<sup>2</sup></a></li>
+		
+			<li><a href="/coney/categories/技术/" title="技术">技术<sup>1</sup></a></li>
+		
+			<li><a href="/coney/categories/技术-Git/" title="技术-Git">技术-Git<sup>2</sup></a></li>
+		
+			<li><a href="/coney/categories/技术-PHP/" title="技术-PHP">技术-PHP<sup>1</sup></a></li>
+		
+			<li><a href="/coney/categories/技术-java/" title="技术-java">技术-java<sup>1</sup></a></li>
+		
+			<li><a href="/coney/categories/技术-技术普及/" title="技术-技术普及">技术-技术普及<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/coney/tags/DIY/" title="DIY">DIY<sup>2</sup></a></li>
+		
+			<li><a href="/coney/tags/Vim/" title="Vim">Vim<sup>1</sup></a></li>
+		
+			<li><a href="/coney/tags/git/" title="git">git<sup>2</sup></a></li>
+		
+			<li><a href="/coney/tags/java/" title="java">java<sup>1</sup></a></li>
+		
+			<li><a href="/coney/tags/node-js/" title="node.js">node.js<sup>1</sup></a></li>
+		
+			<li><a href="/coney/tags/order/" title="order">order<sup>1</sup></a></li>
+		
+			<li><a href="/coney/tags/php/" title="php">php<sup>1</sup></a></li>
+		
+			<li><a href="/coney/tags/terminal/" title="terminal">terminal<sup>1</sup></a></li>
+		
+			<li><a href="/coney/tags/主题/" title="主题">主题<sup>2</sup></a></li>
+		
+			<li><a href="/coney/tags/小说/" title="小说">小说<sup>4</sup></a></li>
+		
+			<li><a href="/coney/tags/技术/" title="技术">技术<sup>1</sup></a></li>
+		
+			<li><a href="/coney/tags/智能硬件/" title="智能硬件">智能硬件<sup>1</sup></a></li>
+		
+			<li><a href="/coney/tags/物联网/" title="物联网">物联网<sup>1</sup></a></li>
+		
+			<li><a href="/coney/tags/蓝牙4-0/" title="蓝牙4.0">蓝牙4.0<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+    
+            <p class="copyright"> © 2014 
+		
+		<a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+		
+            && Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> && Theme by <a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+            </p></div>
+</footer>
+    <script src="/coney/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"coney"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+<script>
+    
+        var _bdImg = '4';
+    
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{
+
+            },
+            "bdText":"",
+            "bdMini":"2",
+            "bdMiniList":[
+                "qzone",
+                "tsina",
+                "weixin",
+                "renren",
+                "tqq",
+                "tieba",
+                "douban",
+                "sqq",
+                "diandian",
+                "huaban",
+                "youdao",
+                "mail",
+                "ty",
+                "fbook",
+                "twi",
+                "linkedin",
+                "copy",
+                "print"
+            ],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "slide":{
+            "type":"slide",
+            "bdImg":_bdImg,
+            "bdPos":"right",
+            "bdTop":"350"
+        },
+        "image":{
+            "viewList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ],
+            "viewText":"分享：",
+            "viewSize":"16"
+        },
+        "selectShare":{
+            "bdContainerClass":null,
+            "bdSelectMiniList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ]
+        }
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-55273525-1', 'gengbiao.me');  
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+
+
+  
+

@@ -1,0 +1,562 @@
+
+  
+    
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="baidu_union_verify" content="d1952c66cf48912e21c18c7c581f382a">
+  <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8">
+<meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88">
+  
+    <title>Node.js开发的常用模块总结 | coney</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="coney">
+    
+    <meta name="description" itemprop="description" content="Node.js开发的常用模块总结">
+    
+    <meta name="keywords" content="Node.js 常用模块 console URL与QueryString Path与File System Stream 定时器 child process ChildProcess对象 global">
+    
+    
+    <link rel="alternate" href="atom.xml" title="coney" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            var _bdId ='391982416296a0d54221f59fe35250d4';
+             hm.src = "//hm.baidu.com/hm.js?" + _bdId;
+             var s = document.getElementsByTagName("script")[0]; 
+             s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+     
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="coney">coney</a></h1>
+				<a class="blog-motto">有些事情,再不去做就忘了.有些人,再不去找就没了.</a>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/categories/小说">小说</a></li>
+          
+            <li><a href="/categories/hexo">Hexo</a></li>
+          
+            <li><a href="/categories/技术/">技术</a></li>
+          
+            <li><a href="/friends">Friends</a></li>
+          
+            <li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+                                            <form class="search" action="http://search.gengbiao.me/cse/search" target="_blank">
+                                            <label>Search</label>
+                                        <input name="s" type="hidden" value="2049782880735612718"><input type="text" name="q" size="30" placeholder="搜索"><br>
+					
+					</form></li>
+				</ul>
+                            </ul></nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope="" itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/10/22/node.js开发的常用模块总结/" title="Node.js开发的常用模块总结" itemprop="url">Node.js开发的常用模块总结</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://gengbiao.me" title="coney" target="_blank" rel="external">coney</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2014-10-21T16:00:00.000Z" itemprop="datePublished">10月 22 2014</time>
+    更新日期:<time datetime="2014-10-22T10:24:53.000Z" itemprop="dateModified">10月 22 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js开发的常用模块总结"><span class="toc-number">1.</span> <span class="toc-text">Node.js开发的常用模块总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#console"><span class="toc-number">1.1.</span> <span class="toc-text">console</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#URL与QueryString"><span class="toc-number">1.2.</span> <span class="toc-text">URL与QueryString</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path与File_System"><span class="toc-number">1.3.</span> <span class="toc-text">Path与File System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream"><span class="toc-number">1.4.</span> <span class="toc-text">Stream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定时器"><span class="toc-number">1.5.</span> <span class="toc-text">定时器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#child_process"><span class="toc-number">1.6.</span> <span class="toc-text">child process</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建进程"><span class="toc-number">1.6.1.</span> <span class="toc-text">创建进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选项说明"><span class="toc-number">1.6.2.</span> <span class="toc-text">选项说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ChildProcess对象"><span class="toc-number">1.6.3.</span> <span class="toc-text">ChildProcess对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#global"><span class="toc-number">1.7.</span> <span class="toc-text">global</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="Node-js开发的常用模块总结">Node.js开发的常用模块总结</h1>
+<p>因为玩hexo的静态blog的原因，为了满足自己的需求，学了学node.js，自己动手写了<a href="">几个hexo的插件</a>。开发告一段落，估计过两个星期就把node.js忘了，跑来总结下。</p>
+<h2 id="console">console</h2>
+<p>console模块是Node提供的核心模块，提供基本的输出功能。虽然node.js采用的js语法，但是你千万不要在node.js使用alert进行调试，那是浏览器带的全局方法，会报错的。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">console.log([format],<span class="keyword">...</span>) <span class="comment">##向控制台输出日志，类似的API还有info() err() warn()，</span></div><div class="line">                          <span class="comment">##格式有%s,%d,%j(json格式)</span></div><div class="line">console.info()</div><div class="line">console.warn()</div><div class="line">console.error()           <span class="comment">##与console.log()差不多</span></div><div class="line">    e.g. </div><div class="line">    console.log(<span class="string">'%s,%d,%j'</span>,<span class="string">'hello world'</span>,<span class="number">0</span>,{name:<span class="string">'coney'</span>,Sexy:<span class="string">'Male'</span>,age:<span class="number">18</span>,do:[<span class="string">'hexo'</span>,<span class="string">'node.js'</span>,<span class="string">'themes'</span>]});</div><div class="line">    <span class="comment">##输出：</span></div><div class="line">    hello world,<span class="number">0</span>,{<span class="string">"name"</span>:<span class="string">"coney"</span>,<span class="string">"Sexy"</span>:<span class="string">"Male"</span>,<span class="string">"age"</span>:<span class="number">18</span>,<span class="string">"do"</span>:[<span class="string">"hexo"</span>,<span class="string">"node.js"</span>,<span class="string">"themes"</span>]}</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.dir(object)       ##利用util.inspect()输出对象的分析</div><div class="line">	e.g.</div><div class="line">	<span class="keyword">var</span> Hexo = <span class="function"><span class="keyword">function</span><span class="params">(root,theme,version)</span>  </span></div><div class="line">	{  </div><div class="line">  		<span class="keyword">this</span>.root=root;  </div><div class="line">  		<span class="keyword">this</span>.themes=theme;  </div><div class="line">  		<span class="keyword">this</span>.version=version;</div><div class="line">	};  </div><div class="line">	<span class="keyword">var</span> myBlog = <span class="keyword">new</span> Person(<span class="string">'Users/workspace'</span>,<span class="string">'coney'</span>,<span class="number">1.0</span>);  </div><div class="line">	<span class="built_in">console</span>.dir(myBlog);  </div><div class="line">	<span class="built_in">console</span>.dir(Hexo); </div><div class="line">    ## 输出</div><div class="line">    {root: <span class="string">'Users/workspace'</span>, theme:<span class="string">'coney'</span>, version: <span class="number">1.0</span>}</div><div class="line">    [<span class="built_in">Function</span>]</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.time(tag) </div><div class="line"><span class="built_in">console</span>.timeEnd(tag)      <span class="comment">##配合time() 生成一个测时器，并输出其间隔的时间</span></div><div class="line">                          <span class="comment">##time和timeEnd中不要输入中文，</span></div><div class="line">                          <span class="comment">##time和timeEnd中输入的参数要一致</span></div><div class="line">	e.g.</div><div class="line">	<span class="reserved">var</span> tag = <span class="string">'the time-consuming of sum operate'</span>;</div><div class="line">	<span class="built_in">console</span>.time(tag);</div><div class="line">	<span class="reserved">var</span> sum=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="reserved">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10000</span>;i++)</div><div class="line">	{</div><div class="line">		sum+=i;</div><div class="line">	}</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'sum=%d'</span>,sum);</div><div class="line">	<span class="built_in">console</span>.timeEnd(tag);</div><div class="line">	<span class="comment">##输出:</span></div><div class="line">		sum=<span class="number">49995000</span></div><div class="line">		the time-consuming <span class="keyword">of</span> sum <span class="attribute">operate</span>: <span class="number">9</span>ms</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">console.<span class="keyword">assert</span>(expr,msg)  <span class="comment">##若expr为假，则输出msg</span></div><div class="line">	e.g.</div><div class="line">	console.<span class="keyword">assert</span>(<span class="number">1</span>==<span class="number">2</span>,<span class="string">'above is wrong'</span>); </div><div class="line">	<span class="comment">##输出</span></div><div class="line">	AssertionError,above <span class="keyword">is</span> wrong</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.<span class="keyword">trace</span>(tag)        <span class="preprocessor">##输出当前的栈信息</span></div></pre></td></tr></table></figure>
+
+<h2 id="URL与QueryString">URL与QueryString</h2>
+<p>这两个模块是Node提供的核心模块，用于处理URL及URL中的查询串。通常情况下，不需要直接处理querystring，因为url模块的支持。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">url.parse(url,qs,sl)  </div><div class="line">					<span class="preprocessor">##将url解析为一个对象，其中包含host,hostname,port等字段，</span></div><div class="line">					<span class="preprocessor">##若qs为true，则调用querystring解析查询串</span></div><div class="line">url.<span class="built_in">format</span>(obj)        </div><div class="line">					<span class="preprocessor">##将obj生成为一个url字符串</span></div><div class="line">querystring.stringify(obj,<span class="string">'sep'</span>,<span class="string">'eq'</span>)  </div><div class="line">					<span class="preprocessor">##将对象obj生成查询串</span></div><div class="line">querystring.parse(str) </div><div class="line">					<span class="preprocessor">##解析查询串为对象</span></div></pre></td></tr></table></figure>
+
+<h2 id="Path与File_System">Path与File System</h2>
+<p>Path模块则提供了对路径名称的一些便捷操作，其将输入串作为路径栈来处理，与物理文件系统无关。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">path.normalize(<span class="string">'path'</span>)   <span class="comment">##处理path中的' . '与'..'</span></div><div class="line">path.join(<span class="operator">a</span>,b,..z)  	  <span class="comment">##处理为a/b/.../z，并对结果执行normalize</span></div><div class="line">path.resolve(<span class="operator">a</span>,b,...z)   <span class="comment">##对每个元素执行cd item，返回最终结果</span></div><div class="line">path.<span class="built_in">relative</span>(<span class="operator">a</span>,b)       <span class="comment">##返回b对于a的切换方式，可包含'.'与'..'</span></div><div class="line">path.dirname(path)       <span class="comment">##path.basename(path,'mask') 返回路径的目录部分与文件名部分</span></div><div class="line">path.extname(path)       <span class="comment">##返回路径的扩展名部分</span></div><div class="line">path.seq                 <span class="comment">##OS特定的路径分隔符 "\\" 或  "/"</span></div></pre></td></tr></table></figure>
+
+<p>File System提供了对文件与目录的创建、删除、权限设置，并以及文件的打开、读写与关闭。文件API提供两套接口，分别支持同步与异步调用。区别是，同步情况异常会立即抛出，需要用try-catch捕获，而在异步情况下，异常会传递给回调函数处理。值得注意的是异步情况下，不同的事件的完成顺序是未决的，因而对于有顺序的操作，最好在函数的事件链中去完成。由于同步操作与POSIX同名调用类似，因此这里只介绍异步接口。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">fs.rename(oldPath, newPath, [<span class="keyword">callback</span>])   </div><div class="line">									<span class="preprocessor">##修改名字，回调函数为function(exception) {}</span></div><div class="line">fs.truncate(fd, len, [<span class="keyword">callback</span>])   <span class="preprocessor">##截断文件</span></div><div class="line">fs.chown(path, uid, gid, [<span class="keyword">callback</span>])  </div><div class="line">fs.fchown(fd, uid, gid, [<span class="keyword">callback</span>])  </div><div class="line">								  	<span class="preprocessor">##修改文件所属</span></div><div class="line">fs.chmod(path, mode, [<span class="keyword">callback</span>]) </div><div class="line">fs.fchmod(fd, mode, [<span class="keyword">callback</span>]) </div><div class="line">									<span class="preprocessor">##修改文件权限</span></div><div class="line">fs.stat(path, [<span class="keyword">callback</span>])   </div><div class="line">fs.lstat(path, [<span class="keyword">callback</span>])  </div><div class="line">fs.fstat(fd, [<span class="keyword">callback</span>])  </div><div class="line">							<span class="preprocessor">##返回文件stat，回调为function(err,state) {}</span></div><div class="line">fs.link(srcpath, dstpath, [<span class="keyword">callback</span>])  </div><div class="line">fs.symlink(srcpath, dstpath, [type], [<span class="keyword">callback</span>]) </div><div class="line">							<span class="preprocessor">##创建链接与符号链接</span></div><div class="line">fs.readlink(path, [<span class="keyword">callback</span>]) </div><div class="line">							<span class="preprocessor">##读取link的内容</span></div><div class="line">fs.unlink(path, [<span class="keyword">callback</span>])</div><div class="line">							<span class="preprocessor">##取消link</span></div><div class="line">fs.rmdir(path, [<span class="keyword">callback</span>])   </div><div class="line">fs.mkdir(path, [mode], [<span class="keyword">callback</span>])</div><div class="line">							<span class="preprocessor">##目录创建与删除</span></div><div class="line">fs.readdir(path, [<span class="keyword">callback</span>])  </div><div class="line">							<span class="preprocessor">##读取目录内容  回调为function(err,files) {}</span></div><div class="line">fs.open(path, flags, [mode], [<span class="keyword">callback</span>])    </div><div class="line">							<span class="preprocessor">##回调为function(err,fd) {}</span></div><div class="line">fs.write(fd, buffer, offset, length, position, [<span class="keyword">callback</span>])  </div><div class="line">							<span class="preprocessor">##回调为function(err,len,buf) ;</span></div><div class="line">fs.read(fd, buffer, offset, length, position, [<span class="keyword">callback</span>])  </div><div class="line">							<span class="preprocessor">##回调为function(err,len,buf) ;</span></div><div class="line">fs.close(fd, [<span class="keyword">callback</span>])</div><div class="line">fs.utimes(path, atime, mtime, [<span class="keyword">callback</span>])  </div><div class="line">fs.futimes(fd, atime, mtime, [<span class="keyword">callback</span>])  </div><div class="line">							<span class="preprocessor">##修改文件的访问时间与修改时间</span></div><div class="line">fs.fsync(fd, [<span class="keyword">callback</span>]) </div><div class="line">fs.readFile(filename, [encoding], [<span class="keyword">callback</span>])     </div><div class="line">							<span class="preprocessor">##高层接口，回调为function(err,data)</span></div><div class="line">fs.writeFile(filename, data, [encoding], [<span class="keyword">callback</span>])  </div><div class="line">							<span class="preprocessor">##高层接口，回调为function(err)</span></div><div class="line">fs.appendFile(filename, data, encoding=<span class="string">'utf8'</span>, [<span class="keyword">callback</span>])</div><div class="line">fs.createReadStream(path,[opt]) </div><div class="line">fs.createWriteStream(path,[opt]) 从路径创建输入与输出流</div></pre></td></tr></table></figure>
+
+<h2 id="Stream">Stream</h2>
+<p>Stream是Node实现的一种面向流处理的接口，支持文件流、HTTP数据流、标准IO流等进行抽象操作。<br>Stream分为readStream与writeStream两种类型<br>read stream 定义了下列事件 data,end,error,close 用于在底层处理流的过程中回调用户的事件监听器。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span>Encoding(<span class="string">'charset'</span>)  <span class="comment">##设置流的字符编辑，默认为utf-8</span></div><div class="line">pause() resume() 		</div><div class="line">						<span class="comment">##暂停与恢复流处理，需要注意的是有些底层处理并不能立即生效,						##在pause一段时间内仍会抛出data事件</span></div><div class="line">destroy()       		<span class="comment">##在流处理结束后，释放流使得底层可以关闭文件</span></div><div class="line">pipe(dstream,[opt])     <span class="comment">##将输入流复制到目标输出流</span></div></pre></td></tr></table></figure>
+
+<p>writable Stream定义了下列事件： </p>
+<p>drain,error,close,pipe 用于底层在处理流的过程中回调用户的事件监听器</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">write</span><span class="params">(string,[charset])</span>  </span></div><div class="line"><span class="title">write</span><span class="params">(buff)</span> 写入输出流</div><div class="line"><span class="title">end</span><span class="params">()</span>  </div><div class="line"><span class="title">end</span><span class="params">(string,encoding)</span> <span class="title">end</span><span class="params">(buf)</span> 定稿输出流并写入EOF</div><div class="line"><span class="title">destory</span><span class="params">()</span>/<span class="title">destroySoon</span><span class="params">()</span>  关闭底层资源，后者后将写入缓存区写空后释放。</div></pre></td></tr></table></figure>
+
+<h2 id="定时器">定时器</h2>
+<p>定时器操作被导出到全局命名空间中，不需要单独包含</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function">setTimeout</span>(callback, delay, <span class="attr_selector">[arg...]</span>)   设置超时执行</div><div class="line"><span class="function">clearTimeout</span>(timeoutId)    </div><div class="line"><span class="function">setInterval</span>(callback, delay, <span class="attr_selector">[arg...]</span>)    设置间隔执行</div><div class="line"><span class="function">clearInterval</span>(intervalId)</div></pre></td></tr></table></figure>
+
+<h2 id="child_process">child process</h2>
+<p>此模块提供了操作子进程以及与进程间通信的基本功能。这个模块提供执行子进程的四种方式，并返回子进程的抽象，ChildProcess类型的实例。子进程类型其实是一个事件发生器，其上定义了子进程生命周期中的各种事件，如exit, close, message,disconnect事件。实例可以取到对应进程的相关属性如标准输入、输出、错误、进程ID，此外还提供了对进程发送消息的接口send,kill()和disconnect()。</p>
+<h3 id="创建进程">创建进程</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">spawn(cmd, [args,<span class="keyword">...</span>], [opt])  </div><div class="line">                             <span class="comment">##基于cmd命令执行一个子进程，命令的参数为args，若无则为空</span></div><div class="line">                             <span class="comment">##数据。option={cwd, stdio, customFds, </span></div><div class="line">                             <span class="comment">##env, detatched}</span></div><div class="line">exec(cmd,[opt],callback )    </div><div class="line">                             <span class="comment">##基于cmd命令执行子进程，命令参数为空格分隔。回调的原型为</span></div><div class="line">                             <span class="comment">##function(err,stdout, stderr) {}。</span></div><div class="line">                             <span class="comment">##option={cwd, stdio, customFds, env,encoding,</span></div><div class="line">                             <span class="comment">##timeout,maxBuffer,killSignal}</span></div><div class="line">execfile(file , [args,<span class="keyword">...</span>], [opt],callback)  </div><div class="line">                             <span class="comment">##对于非shell命令的程序，可以通过execfile来执行，</span></div><div class="line">                             <span class="comment">##回调函数原型为function(err,stdout, stderr) {}。</span></div><div class="line">                             <span class="comment">##option={cwd, stdio, customFds, env,encoding,</span></div><div class="line">                             <span class="comment">##timeout,maxBuffer,killSignal}</span></div><div class="line">fork(module, [args,<span class="keyword">...</span>],[opt])  </div><div class="line">                             <span class="comment">##在子进程中执行一个node模块。</span></div><div class="line">                             <span class="comment">##option={cwn,env,encoding}.</span></div></pre></td></tr></table></figure>
+
+<h3 id="选项说明">选项说明</h3>
+<ol>
+<li><p><code>cwd</code>:当前工作区</p>
+</li>
+<li><p><code>env</code>: 进程执行环境</p>
+</li>
+<li><p><code>stdio</code>: 一个数组，数组每个位置对应子进程的一个文件fd，每个位置的值可能为pipe, ipc,ignore,stream obj, null, 正数。pipe表示创建一个父子间的管道，父进程可以通过child_process.stdio[fd]来获取写入端。IPC，创建一个IPC信道。可以使用send()来向此文件fd进行消息的传递，并在接受方引发on(‘message’)事件。 ignore：忽略IO，重定向到/dev/null。</p>
+</li>
+<li><p><code>Stream obj</code>:在进程间共享一个re/wt 流对象，以操作子进程的TTY,FILE,PIPE,SOCKET等。正整数：其值表示在父进程中打开的文件fd，共享给子进程。null，使用默认值。0,1,2为pipe，&gt;3的为ignore。为了方便书写， node定义了三个数组，’ignore’，’pipe’，’inherit’，分别表示对于0-2的文件进行相应的操作<br>例如，如果想让子进程直接使用父进程的输出，可以require(‘child_process’).spawn(‘ls’,[ ],{stdio:‘inherit’});</p>
+</li>
+<li><p><code>detached</code>:让子进程成为新进程组的首进程，从而在父进程退出后仍可继续执行。默认情况下父进程会等子detached进程的结束，可以通过child.unref()来避免这种等待。尽管如此，若希望子进程正常执行，仍需要将子进程与父进程的控制终端相剥离。</p>
+</li>
+<li><p><code>timeout</code>:若&gt;0，则在执行超时后由选项指定的信号终止。</p>
+</li>
+<li><p><code>killSignal</code>:指定期望接收的终止信号</p>
+</li>
+<li><p><code>maxBuffer</code>:指定标准输出和错误的最大数据量，超出后子进程被kill</p>
+</li>
+</ol>
+<h3 id="ChildProcess对象">ChildProcess对象</h3>
+<p>本类是子进程的抽象对象，支持以下操作和属性</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">kill</span>(signal)   </div><div class="line">			<span class="comment">##使用信号终止进程</span></div><div class="line"><span class="built_in">send</span>(msg, [sendHandler])  </div><div class="line">			<span class="comment">##这里需要注意的是，在父进程中调用send()的事件会被子进程注册的事件处理</span></div><div class="line">			<span class="comment">##函数处理，而在子进程中给自己send()会触发在父进程中注册的事件处理函数。</span></div><div class="line">disconnect()</div><div class="line"><span class="keyword">stdin</span>,<span class="keyword">stdout</span>,<span class="keyword">stderr</span>,  Readable Stream或Writable Stream</div><div class="line">pid：</div><div class="line">    <span class="comment">##子进程的PID</span></div><div class="line"><span class="comment">##子进程在执行过程中会触发以下事件：</span></div><div class="line">exit：</div><div class="line">    <span class="comment">##进程终止时触发。回调function(code,signal) ，若进程正常结束，则code为执行进程的</span></div><div class="line">    <span class="comment">##退出码，否则为null。若进程由信号终止，则signal为收到的信号。</span></div><div class="line"><span class="built_in">close</span>：</div><div class="line">	<span class="comment">##进程的 stdio流结合时触发</span></div><div class="line">disconnect：</div><div class="line">	<span class="comment">##调用dieconnect()后触发，调用后不可以再向子进程发送消息，可以检查</span></div><div class="line">	<span class="comment">##child.connected属性</span></div><div class="line">message：</div><div class="line">	<span class="comment">##在调用send()后触发，function(msg,sendHandler){}</span></div><div class="line">	<span class="comment">##sH可能为socket对象，或server对象。</span></div></pre></td></tr></table></figure>
+
+<h2 id="global">global</h2>
+<p>全局空间可以访问console,process,buffer,timer模块，不需要require<br>console与timer在上面已有说明，process提供了node执行进程的运行环境、参数、进程的gid,uid,运行时间等等，具体可以查找process模块</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="title">__filename</span> <span class="comment">##当前执行脚本的文件名</span></div><div class="line">__dirname  <span class="comment">##当前执行脚本的所在目录</span></div></pre></td></tr></table></figure>
+
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/node-js/">node.js</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/技术/">技术</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://gengbiao.me/2014/10/22/node.js开发的常用模块总结/" data-title="Node.js开发的常用模块总结 | coney" data-tsina="1005055274569156" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev">
+ <a href="/2014/10/22/hexo添加百度站内搜索/" title="hexo添加百度站内搜索">
+  <strong>PREVIOUS:</strong><br>
+  <span>
+  hexo添加百度站内搜索</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/10/16/coney主题的博客颜色更改/" title="coney主题的博客颜色更改">
+ <strong>NEXT:</strong><br> 
+ <span>coney主题的博客颜色更改
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js开发的常用模块总结"><span class="toc-number">1.</span> <span class="toc-text">Node.js开发的常用模块总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#console"><span class="toc-number">1.1.</span> <span class="toc-text">console</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#URL与QueryString"><span class="toc-number">1.2.</span> <span class="toc-text">URL与QueryString</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path与File_System"><span class="toc-number">1.3.</span> <span class="toc-text">Path与File System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream"><span class="toc-number">1.4.</span> <span class="toc-text">Stream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定时器"><span class="toc-number">1.5.</span> <span class="toc-text">定时器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#child_process"><span class="toc-number">1.6.</span> <span class="toc-text">child process</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建进程"><span class="toc-number">1.6.1.</span> <span class="toc-text">创建进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选项说明"><span class="toc-number">1.6.2.</span> <span class="toc-text">选项说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ChildProcess对象"><span class="toc-number">1.6.3.</span> <span class="toc-text">ChildProcess对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#global"><span class="toc-number">1.7.</span> <span class="toc-text">global</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	<div class="social-list">
+		
+		<a href="http://weibo.com/coneylife" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/coneycode" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">分类</p>
+    <ul>
+    
+      <li><a href="/categories/Mac/" title="Mac">Mac<sup>1</sup></a></li>
+    
+      <li><a href="/categories/Terminal/" title="Terminal">Terminal<sup>1</sup></a></li>
+    
+      <li><a href="/categories/hexo/" title="hexo">hexo<sup>4</sup></a></li>
+    
+      <li><a href="/categories/小说/" title="小说">小说<sup>13</sup></a></li>
+    
+      <li><a href="/categories/技术/" title="技术">技术<sup>16</sup></a></li>
+    
+    </ul>
+</div>
+
+
+  
+<div class="tagslist">
+  <p class="asidetitle">标签</p>
+    <ul class="clearfix">
+    
+      <li><a href="/tags/Android/" title="Android">Android<sup>4</sup></a></li>
+    
+      <li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>2</sup></a></li>
+    
+      <li><a href="/tags/DIY/" title="DIY">DIY<sup>3</sup></a></li>
+    
+      <li><a href="/tags/Vim/" title="Vim">Vim<sup>1</sup></a></li>
+    
+      <li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+    
+      <li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
+    
+      <li><a href="/tags/node-js/" title="node.js">node.js<sup>1</sup></a></li>
+    
+      <li><a href="/tags/order/" title="order">order<sup>1</sup></a></li>
+    
+      <li><a href="/tags/php/" title="php">php<sup>1</sup></a></li>
+    
+      <li><a href="/tags/technique/" title="technique">technique<sup>1</sup></a></li>
+    
+      <li><a href="/tags/terminal/" title="terminal">terminal<sup>1</sup></a></li>
+    
+      <li><a href="/tags/世界上最美的十大谎言/" title="世界上最美的十大谎言">世界上最美的十大谎言<sup>2</sup></a></li>
+    
+      <li><a href="/tags/主题/" title="主题">主题<sup>2</sup></a></li>
+    
+      <li><a href="/tags/你好，旧时光/" title="你好，旧时光">你好，旧时光<sup>3</sup></a></li>
+    
+      <li><a href="/tags/学习/" title="学习">学习<sup>3</sup></a></li>
+    
+      <li><a href="/tags/技术普及/" title="技术普及">技术普及<sup>1</sup></a></li>
+    
+      <li><a href="/tags/智能硬件/" title="智能硬件">智能硬件<sup>1</sup></a></li>
+    
+      <li><a href="/tags/江洋大盗阿蜜蜜/" title="江洋大盗阿蜜蜜">江洋大盗阿蜜蜜<sup>1</sup></a></li>
+    
+      <li><a href="/tags/物联网/" title="物联网">物联网<sup>1</sup></a></li>
+    
+      <li><a href="/tags/破风伤/" title="破风伤">破风伤<sup>7</sup></a></li>
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+    
+            <p class="copyright"> © 2014 
+		
+		<a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+		
+            && Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> && Theme by <a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+            </p></div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"coneylife"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+<script>
+    
+        var _bdImg = '4';
+    
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{
+
+            },
+            "bdText":"",
+            "bdMini":"2",
+            "bdMiniList":[
+                "qzone",
+                "tsina",
+                "weixin",
+                "renren",
+                "tqq",
+                "tieba",
+                "douban",
+                "sqq",
+                "diandian",
+                "huaban",
+                "youdao",
+                "mail",
+                "ty",
+                "fbook",
+                "twi",
+                "linkedin",
+                "copy",
+                "print"
+            ],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "slide":{
+            "type":"slide",
+            "bdImg":_bdImg,
+            "bdPos":"right",
+            "bdTop":"350"
+        },
+        "image":{
+            "viewList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ],
+            "viewText":"分享：",
+            "viewSize":"16"
+        },
+        "selectShare":{
+            "bdContainerClass":null,
+            "bdSelectMiniList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ]
+        }
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-55273525-1', 'gengbiao.me');  
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+
+
+  
+

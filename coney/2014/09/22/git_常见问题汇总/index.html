@@ -1,0 +1,534 @@
+
+  
+    
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="baidu_union_verify" content="d1952c66cf48912e21c18c7c581f382a">
+  <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8">
+<meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88">
+  
+    <title>git 常见问题汇总 | coney</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="coney">
+    
+    <meta name="description" content="git 常见问题汇总
+github Contributions Calendar不记录
+一开始为了方便直接用ssh登陆了，结果github发现我push的账号email跟我的github上public的email不一样，果断悲剧了。就是calendar这个东西没有提交动态。。于是
+1git conf">
+    
+    <meta name="keywords" content="Mac 苹果 终端 terminal gengbiao.me 程序员 git add contributions calendar">
+    
+    
+    <link rel="alternate" href="atom.xml" title="coney" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/coney/img/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/coney/css/style.css" type="text/css">
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            var _bdId ='391982416296a0d54221f59fe35250d4';
+             hm.src = "//hm.baidu.com/hm.js?" + _bdId;
+             var s = document.getElementsByTagName("script")[0]; 
+             s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+     
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/coney/" title="coney">coney</a></h1>
+				<a class="blog-motto">有些事情,再不去做就忘了.有些人,再不去找就没了.</a>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+          
+            <li><a href="/categories/小说">小说</a></li>
+          
+            <li><a href="/categories/hexo">Hexo</a></li>
+          
+            <li><a href="/categories/技术/">技术</a></li>
+          
+            <li><a href="/friends">Friends</a></li>
+          
+            <li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+                                            <form class="search" action="http://search.gengbiao.me/cse/search" target="_blank">
+                                            <label>Search</label>
+                                        <input name="s" type="hidden" value="2049782880735612718"><input type="text" name="q" size="30" placeholder="搜索"><br>
+					
+					</form></li>
+				</ul>
+                            </ul></nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope="" itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/coney/2014/09/22/git_常见问题汇总/" title="git 常见问题汇总" itemprop="url">git 常见问题汇总</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://gengbiao.me" title="coney" target="_blank" rel="external">coney</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2014-09-21T16:00:00.000Z" itemprop="datePublished">9月 22 2014</time>
+    更新日期:<time datetime="2014-10-20T08:08:33.000Z" itemprop="dateModified">10月 20 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git_常见问题汇总"><span class="toc-number">1.</span> <span class="toc-text">git 常见问题汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#github_Contributions_Calendar不记录"><span class="toc-number">1.1.</span> <span class="toc-text">github Contributions Calendar不记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github_add_的不同形式"><span class="toc-number">1.2.</span> <span class="toc-text">github add 的不同形式</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="git_常见问题汇总">git 常见问题汇总</h1>
+<h2 id="github_Contributions_Calendar不记录">github Contributions Calendar不记录</h2>
+<p>一开始为了方便直接用ssh登陆了，结果github发现我push的账号email跟我的github上public的email不一样，果断悲剧了。就是calendar这个东西没有提交动态。。<br><img src="http://coney.qiniudn.com/git_calendar.png?attname=&amp;e=1412907149&amp;token=gJq7XMKe61C7zF73uUsV1e9QYqD3-fJSyQAAZZZr:Js1kVBGoxO6MwQgdtZixirfhzs8" alt="github_calendar"><br>于是</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config <span class="literal">user</span>.email</div></pre></td></tr></table></figure>
+
+<p>这个时候当然什么都没有，最开始登陆是直接ssh登陆的，没有config这些东西。<br>然后</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">git</span> config user.email <span class="string">"username<span class="variable">@email</span>.com"</span></div></pre></td></tr></table></figure>
+
+<p>搞定。</p>
+<h2 id="github_add_的不同形式">github add 的不同形式</h2>
+<p>git add命令主要用于把我们要提交的文件的信息添加到索引库中。当我们使用git commit时，git将依据索引库中的内容来进行文件的提交。<br>基本上会用到下面的几个命令：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">git add xxx</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">git add —all</td>
+<td>第一次提交的时候需要使用git add —all,将数据初始化到索引库中。</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">git add path</td>
+<td>通过git add <path>的形式把我们<path>添加到索引库中，<path>可以是文件也可以是目录。git不仅能判断出<path>中，修改（不包括已删除）的文件，还能判断出新添的文件，并把它们的信息添加到索引库中。</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">git add -u [<path>]</td>
+<td>把<path>中所有tracked文件中被修改过或已删除文件的信息添加到索引库。它不会处理untracted的文件。省略<path>表示.,即当前目录。</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">git add -A [<path>]</td>
+<td>表示把<path>中所有tracked文件中被修改过或已删除文件和所有untracted的文件信息添加到索引库。省略<path>表示.,即当前目录。</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">git add -i</td>
+<td>通过git add -i [<path>]命令查看<path>中被所有修改过或已删除文件但没有提交的文件，并通过其revert子命令可以查看<path>中所有untracted的文件，同时进入一个子命令系统。（见下图）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://coney.qiniudn.com/git_add_i.png?attname=&amp;e=1412906967&amp;token=gJq7XMKe61C7zF73uUsV1e9QYqD3-fJSyQAAZZZr:ZM2n0HhwbQYBVlD7WXZJhlhA84o" alt="git_add_i"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/coney/tags/git/">git</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/coney/categories/技术-Git/">技术-Git</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://gengbiao.me/2014/09/22/git_常见问题汇总/" data-title="git 常见问题汇总 | coney" data-tsina="1005055274569156" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev">
+ <a href="/coney/2014/09/22/Mac下终极shell—zsh_+_vim_的配色方案/" title="Mac下终极shell—zsh + vim 的配色方案">
+  <strong>PREVIOUS:</strong><br>
+  <span>
+  Mac下终极shell—zsh + vim 的配色方案</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/coney/2014/09/15/蓝牙4.0，物联网时代的垫脚石/" title="蓝牙4.0，物联网时代的垫脚石">
+ <strong>NEXT:</strong><br> 
+ <span>蓝牙4.0，物联网时代的垫脚石
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git_常见问题汇总"><span class="toc-number">1.</span> <span class="toc-text">git 常见问题汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#github_Contributions_Calendar不记录"><span class="toc-number">1.1.</span> <span class="toc-text">github Contributions Calendar不记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github_add_的不同形式"><span class="toc-number">1.2.</span> <span class="toc-text">github add 的不同形式</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	<div class="social-list">
+		
+		<a href="http://weibo.com/coneylife" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/coneycode" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+  <p class="asidetitle">分类</p>
+    <ul>
+    
+      <li><a href="/categories/Mac/" title="Mac">Mac<sup>1</sup></a></li>
+    
+      <li><a href="/categories/Terminal/" title="Terminal">Terminal<sup>1</sup></a></li>
+    
+      <li><a href="/categories/hexo/" title="hexo">hexo<sup>4</sup></a></li>
+    
+      <li><a href="/categories/小说/" title="小说">小说<sup>13</sup></a></li>
+    
+      <li><a href="/categories/技术/" title="技术">技术<sup>16</sup></a></li>
+    
+    </ul>
+</div>
+
+
+  
+<div class="tagslist">
+  <p class="asidetitle">标签</p>
+    <ul class="clearfix">
+    
+      <li><a href="/tags/Android/" title="Android">Android<sup>4</sup></a></li>
+    
+      <li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>2</sup></a></li>
+    
+      <li><a href="/tags/DIY/" title="DIY">DIY<sup>3</sup></a></li>
+    
+      <li><a href="/tags/Vim/" title="Vim">Vim<sup>1</sup></a></li>
+    
+      <li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+    
+      <li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
+    
+      <li><a href="/tags/node-js/" title="node.js">node.js<sup>1</sup></a></li>
+    
+      <li><a href="/tags/order/" title="order">order<sup>1</sup></a></li>
+    
+      <li><a href="/tags/php/" title="php">php<sup>1</sup></a></li>
+    
+      <li><a href="/tags/technique/" title="technique">technique<sup>1</sup></a></li>
+    
+      <li><a href="/tags/terminal/" title="terminal">terminal<sup>1</sup></a></li>
+    
+      <li><a href="/tags/世界上最美的十大谎言/" title="世界上最美的十大谎言">世界上最美的十大谎言<sup>2</sup></a></li>
+    
+      <li><a href="/tags/主题/" title="主题">主题<sup>2</sup></a></li>
+    
+      <li><a href="/tags/你好，旧时光/" title="你好，旧时光">你好，旧时光<sup>3</sup></a></li>
+    
+      <li><a href="/tags/学习/" title="学习">学习<sup>3</sup></a></li>
+    
+      <li><a href="/tags/技术普及/" title="技术普及">技术普及<sup>1</sup></a></li>
+    
+      <li><a href="/tags/智能硬件/" title="智能硬件">智能硬件<sup>1</sup></a></li>
+    
+      <li><a href="/tags/江洋大盗阿蜜蜜/" title="江洋大盗阿蜜蜜">江洋大盗阿蜜蜜<sup>1</sup></a></li>
+    
+      <li><a href="/tags/物联网/" title="物联网">物联网<sup>1</sup></a></li>
+    
+      <li><a href="/tags/破风伤/" title="破风伤">破风伤<sup>7</sup></a></li>
+    
+    </ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+    
+            <p class="copyright"> © 2014 
+		
+		<a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+		
+            && Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> && Theme by <a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+            </p></div>
+</footer>
+    <script src="/coney/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"coney"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+<script>
+    
+        var _bdImg = '4';
+    
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{
+
+            },
+            "bdText":"",
+            "bdMini":"2",
+            "bdMiniList":[
+                "qzone",
+                "tsina",
+                "weixin",
+                "renren",
+                "tqq",
+                "tieba",
+                "douban",
+                "sqq",
+                "diandian",
+                "huaban",
+                "youdao",
+                "mail",
+                "ty",
+                "fbook",
+                "twi",
+                "linkedin",
+                "copy",
+                "print"
+            ],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "slide":{
+            "type":"slide",
+            "bdImg":_bdImg,
+            "bdPos":"right",
+            "bdTop":"350"
+        },
+        "image":{
+            "viewList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ],
+            "viewText":"分享：",
+            "viewSize":"16"
+        },
+        "selectShare":{
+            "bdContainerClass":null,
+            "bdSelectMiniList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ]
+        }
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-55273525-1', 'gengbiao.me');  
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+
+
+  
+
